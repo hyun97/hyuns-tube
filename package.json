@@ -1,6 +1,9 @@
 {
 	"name": "hyuns-tube",
 	"version": "1.0.0",
+	"engines": {
+		"node": "10.16.x"
+	},
 	"description": "practice node.js",
 	"main": "init.js",
 	"scripts": {
