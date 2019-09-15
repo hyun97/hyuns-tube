@@ -14,7 +14,8 @@
 		"build:server": "babel src --out-dir build --ignore 'src/assets','src/static','src/webpack.config.js'",
 		"copyAll": "shx cp -r src/static build/static && shx cp -r src/views build/views",
 		"build": "npm run build:server && npm run build:assets && npm run copyAll",
-		"start": "PRODUCTION=true node build/init.js"
+		"start": "node build/init.js",
+		"prestart": "npm run build"
 	},
 	"author": "Hyun",
 	"license": "ISC",

@@ -3,7 +3,6 @@ import dotenv from "dotenv";
 dotenv.config();
 
 let dbUrl = process.env.DB_URL;
-let dbName = process.env.DB_NAME;
 
 mongoose.connect(dbUrl, { useNewUrlParser: true, useFindAndModify: false });
 
@@ -14,7 +13,7 @@ let handleError = error => {
 };
 
 let handleSuccess = () => {
-	console.log(`✅  Connect to ${dbName}`);
+	console.log(`✅  Connect to DB`);
 };
 
 db.on("error", handleError);
