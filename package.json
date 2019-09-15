@@ -13,6 +13,7 @@
 		"build:assets": "cd src && cross-env WEBPACK_ENV=production webpack",
 		"build:server": "babel src --out-dir build --ignore 'src/assets','src/static','src/webpack.config.js'",
 		"copyAll": "shx cp -r src/static build/static && shx cp -r src/views build/views",
+		"prebuild": "shx rm -r C:/hyun/DOCUMENT/WEB/portfolio/hyuns-tube/build",
 		"build": "npm run build:server && npm run build:assets && npm run copyAll",
 		"start": "PRODUCTION=true node build/init.js"
 	},
