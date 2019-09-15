@@ -10,10 +10,8 @@ import "./model/comment";
 import "./model/user";
 import "./model/video";
 
-let PORT = 2000;
-
 let handleListening = () => {
 	console.log(`✅  Connect to localhost:2000`);
 };
 
-app.listen(PORT, handleListening);
+app.listen(2000, handleListening);
