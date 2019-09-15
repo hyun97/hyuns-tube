@@ -1,0 +1,23 @@
+@import "./config/_variable.scss";
+@import "./config/reset.scss";
+@import "./config/animate.css";
+
+@import "./main.scss";
+
+@import "./partical/header.scss";
+@import "./partical/nav.scss";
+@import "./partical/video.scss";
+@import "./partical/socialLogin.scss";
+@import "./partical/flashMessage.scss";
+
+@import "./page/videoDetail.scss";
+@import "./page/join.scss";
+@import "./page/login.scss";
+@import "./page/userDetail.scss";
+@import "./page/upload.scss";
+@import "./page/editProfile.scss";
+@import "./page/changePassword.scss";
+@import "./page/editVideo.scss";
+
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Pacifico&display=swap");

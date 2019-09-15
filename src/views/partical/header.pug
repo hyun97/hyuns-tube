@@ -1,0 +1,32 @@
+header.header
+    .header__logo
+        a(href=routes.home)
+            i.far.fa-lightbulb
+    .header__title 
+        a(href=routes.home)
+            span #{hyuns}
+
+    .header__search
+        form(action=routes.search, method="get")
+            input(type="text", name="search", placeholder="🔎 검색", required)
+
+    if !loggedUser
+        .header__sign
+            //- join
+            a(href=routes.join)
+                i.fas.fa-user-plus
+
+        .header__login
+            //- login
+            a(href=routes.login)
+                i.fas.fa-sign-in-alt
+
+    if loggedUser
+        .header__avatar
+            //- avatar
+            a(href=`${routes.me}`)
+                img.header__log--avatar(src=loggedUser.avatarUrl)
+        .header__logout
+            a(href=routes.logout)
+                i.fas.fa-power-off
+

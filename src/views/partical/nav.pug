@@ -1,0 +1,35 @@
+include ../mixin/subscribe.pug
+
+nav.menu
+    ul.menu__list
+        li.menu__home
+            a(href=routes.home)
+                i.fas.fa-home
+                span 홈
+        li.menu__history
+            a(href=routes.history)
+                i.fas.fa-history
+                span 최근 본 동영상
+        li.menu__like
+            a(href=routes.likeVideo)
+                i.fas.fa-thumbs-up
+                span 좋아요 표시한 동영상
+        li.menu__subscribe
+            a(href=routes.subscribeVideo)
+                i.fas.fa-users
+                span 구독
+        li.menu__upload
+            a(href=`/video${routes.upload}`)
+                i.fas.fa-upload
+                span 업로드
+        if loggedUser
+            p 구독자
+            each item in loggedUserSubscribe.subscribe
+                +subscribeBlock({
+                userDetail: item.id,
+                avatarUrl: item.avatarUrl,
+                name: item.name
+            })
+        
+    
+        

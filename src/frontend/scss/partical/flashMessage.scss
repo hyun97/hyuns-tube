@@ -1,0 +1,42 @@
+@keyframes flashAnimation {
+	0% {
+		transform: translateY(-62px);
+	}
+	10% {
+		transform: translateY(0px);
+	}
+	85% {
+		transform: translateY(0px);
+	}
+	100% {
+		transform: translateY(-62px);
+	}
+}
+
+.flash-wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 11;
+	width: 100%;
+	height: 62px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: $lightGray;
+	font-size: 20px;
+	font-weight: bold;
+	animation: flashAnimation 2s ease-in-out forwards;
+
+	&.error {
+		background-color: #f0541e;
+	}
+
+	&.success {
+		background-color: #009944;
+	}
+
+	&.info {
+		background-color: #003366;
+	}
+}

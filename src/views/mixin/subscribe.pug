@@ -1,0 +1,5 @@
+mixin subscribeBlock(subscribe = {})
+    li.menu__subscriber
+        a(href=`/user${routes.userDetail(subscribe.userDetail)}`)
+            img(src=subscribe.avatarUrl)
+            span=subscribe.name

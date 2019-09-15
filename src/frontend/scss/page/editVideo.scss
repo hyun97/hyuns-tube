@@ -1,0 +1,95 @@
+.edit-video {
+	display: flex;
+	justify-content: center;
+	margin-top: 80px;
+
+	form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		.title,
+		.edit,
+		textarea,
+		.upload-video__file {
+			display: flex;
+			justify-self: center;
+			all: unset;
+			margin-bottom: 30px;
+			width: 400px;
+			height: 50px;
+			border-radius: 5px;
+			background-color: white;
+			color: $lightGray;
+			box-shadow: $shadow;
+			text-align: start;
+			padding-left: 20px;
+		}
+
+		.upload-video__file {
+			display: flex;
+			flex-direction: column;
+			height: 80px;
+			color: $darker;
+			justify-content: center;
+
+			label {
+				margin-bottom: 10px;
+				font-weight: bold;
+			}
+		}
+
+		.title {
+			width: 380px;
+			height: 50px;
+			color: $darker;
+			padding-right: 20px;
+		}
+
+		textarea {
+			width: 380px;
+			height: 120px;
+			padding: 20px;
+			color: $darker;
+		}
+
+		textarea::placeholder {
+			color: #636c72;
+			font-size: 16px;
+		}
+
+		.edit {
+			width: 420px;
+			background-color: $greenNeon;
+			color: $darker;
+			font-weight: bold;
+			font-size: 18px;
+			cursor: pointer;
+			text-align: center;
+			padding: 0px;
+		}
+	}
+}
+
+.delete-video {
+	display: flex;
+	justify-content: center;
+
+	input {
+		display: flex;
+		justify-self: center;
+		all: unset;
+		margin-bottom: 30px;
+		font-weight: bold;
+		width: 420px;
+		cursor: pointer;
+		font-size: 18px;
+		height: 50px;
+		border-radius: 5px;
+		background-color: #ac362e;
+		color: $lightGray;
+		box-shadow: $shadow;
+		text-align: center;
+		padding: 0px;
+	}
+}

@@ -1,0 +1,14 @@
+extends ./layout/main.pug
+
+block content
+    .edit-profile
+        form(action=`/user${routes.editProfile(loggedUser.id)}`, method="post",
+            enctype="multipart/form-data")
+            .edit-profile__file
+                label(for="avatar") 아바타 선택
+                input(type="file", name="avatar", accept="image/*")
+            input.name(type="text", name="name", value=loggedUser.name, required)
+            input.email(type="email", name="email", value=loggedUser.email, required)
+            if !(loggedUser.googleId || loggedUser.naverId)
+                a.password(href=`/user${routes.changePassword(loggedUser.id)}`) 🔒 비밀번호 변경
+            input.edit(type="submit", value="수정")

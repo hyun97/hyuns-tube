@@ -1,0 +1,61 @@
+.edit-profile {
+	display: flex;
+	justify-content: center;
+	margin-top: 80px;
+
+	form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		.name,
+		.email,
+		.edit,
+		.password,
+		.edit-profile__file {
+			display: flex;
+			justify-self: center;
+			all: unset;
+			margin-bottom: 30px;
+			width: 400px;
+			height: 50px;
+			border-radius: 5px;
+			background-color: white;
+			color: $darker;
+			box-shadow: $shadow;
+			text-align: start;
+			padding: 0 20px;
+		}
+
+		.edit,
+		.password {
+			width: 440px;
+			background-color: $greenNeon;
+			color: $darker;
+			font-weight: bold;
+			font-size: 18px;
+			cursor: pointer;
+			text-align: center;
+			padding: 0px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.password {
+			background-color: $gray;
+		}
+
+		.edit-profile__file {
+			display: flex;
+			flex-direction: column;
+			height: 80px;
+			justify-content: center;
+
+			label {
+				margin-bottom: 10px;
+				font-weight: bold;
+			}
+		}
+	}
+}

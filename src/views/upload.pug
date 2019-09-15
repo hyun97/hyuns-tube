@@ -1,0 +1,14 @@
+extends ./layout/main.pug
+
+block content
+    .upload-video
+        form(action=`/video${routes.upload}`, method="post", enctype="multipart/form-data")
+            .upload-video__file
+                label(for="video") 동영상 선택
+                input(type="file", name="video", id="video", accept="video/*", required)
+            .upload-video__file
+                label(for="thumbnail") 썸네일 선택
+                input(type="file", name="thumbnail", id="thumbnail", accept="image/*", required)
+            input(type="text", name="title", placeholder="제목", required)
+            textarea(type="text", name="description", placeholder="설명", required)
+            input(type="submit", value="업로드")

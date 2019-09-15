@@ -1,0 +1,46 @@
+extends ./layout/main.pug
+include mixin/video.pug
+
+block content
+    .user-profile
+        img.user-profile__avatar(src=user.avatarUrl)
+
+        p.user-profile__name #{user.name}
+
+        if  loggedUser && loggedUser.id == user.id || !loggedUser
+            span
+        else if loggedUser && loggedUser.subscribe.indexOf(user.id) == -1
+            span.subscribe-wrapper
+                .subscribe(id=user.id) 
+                    | 구독 
+                    .subscribe-count #{user.follower}
+                    | 명 
+        else
+            span.subscribe-wrapper
+                .subscribe(id=user.id) 
+                    | 구독중 
+                    .subscribe-count #{user.follower}
+                    | 명    
+        if !loggedUser
+            span.subscribeLogout-wrapper
+                .subscribeLogout
+                    | 구독
+                    .subscribe-count #{user.follower}
+                    | 명
+
+        if loggedUser && loggedUser.id == user.id
+            a.user-profile__edit(href=`/user${routes.editProfile(user.id)}`) 
+                p 수정
+                
+    .video-wrapper
+          each item in video.reverse()
+            +videoBlock({
+                videoDetail: item.id,
+                userDetail: item.creator.id,
+                file: item.file,
+                thumbnail: item.thumbnail,
+                title: item.title,
+                creator: item.creator,
+                views: item.views,
+                createAt: item.createAt,
+            })

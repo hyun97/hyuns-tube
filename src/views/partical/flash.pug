@@ -1,0 +1,12 @@
+if messages.error
+    //- 에러
+    .flash-wrapper(class="error")
+        span=messages.error
+else if messages.success
+    //- 성공
+    .flash-wrapper(class="success")
+        span=messages.success
+else if messages.info
+    //- INFO
+    .flash-wrapper(class="info")
+        span=messages.info

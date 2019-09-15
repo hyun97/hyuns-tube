@@ -1,0 +1,18 @@
+extends ./layout/main.pug
+include mixin/video.pug
+
+block content
+    .video-wrapper
+        each item in user.like.reverse()
+            +videoBlock({
+                videoDetail: item.id,
+                userDetail: item.creator.id,
+                file: item.file,
+                thumbnail: item.thumbnail,
+                title: item.title,
+                creator: item.creator,
+                views: item.views,
+                createAt: item.createAt,
+            })
+
+            

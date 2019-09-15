@@ -1,0 +1,17 @@
+mixin videoBlock(video = {})
+    .video
+        .video__player
+            a(href=`/video${routes.videoDetail(video.videoDetail)}`)
+                video(poster=video.thumbnail)
+                
+        .video__info
+            a(href=`/video${routes.videoDetail(video.videoDetail)}`)
+                p.video__title=video.title
+            a(href=`/user${routes.userDetail(video.userDetail)}`)
+                p.video__name=video.creator.name
+            p=video.description
+            p.video__views 조회수 #{video.views}회 ·
+                span  #{moment(video.createAt, moment()).fromNow()}
+            if video.comment
+                p 댓글 #{video.comment.length} 개
+    

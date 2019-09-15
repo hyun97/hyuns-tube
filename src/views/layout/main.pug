@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        title #{hyuns}
+        link(rel="shortcut icon" type="image⁄x-icon" href="#")
+
+        script(src="https://kit.fontawesome.com/f942e6b297.js")
+        link(rel="stylesheet", href="../../static/styles.css")
+
+        link(href="//vjs.zencdn.net/7.3.0/video-js.min.css" rel="stylesheet")
+        link(href="../../static/video-js.min.css" rel="stylesheet")
+        script(src="//vjs.zencdn.net/7.3.0/video.min.js")
+    body
+        include ../partical/flash.pug
+
+        header
+            include ../partical/header.pug
+
+        nav
+            include ../partical/nav.pug
+
+        section
+            block content
+
+        script(src="../../static/main.js")

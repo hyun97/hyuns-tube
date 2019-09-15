@@ -1,0 +1,99 @@
+extends ./layout/main.pug
+include mixin/video.pug
+
+block content
+    .video-detail
+        video.video-detail__video(class="video-js vjs-default-skin", controls, autoplay, data-setup='{}')
+            source(src=video.file, type="video/mp4")
+            source(src=video.file, type="video/webm")
+            source(src=video.file, type="video/ogg")
+
+        .video-info
+            p.video-detail__title=video.title
+
+            span.video-detail__views 조회수 #{video.views}회
+                span.video-detail__like
+                    if loggedUser
+                        button.like
+                            if loggedUser && loggedUser.like.indexOf(video.id) == 0
+                                i.fas.fa-thumbs-up(style="color: #5bc0de")
+                            else
+                                i.fas.fa-thumbs-up
+                    else
+                        i.fas.fa-thumbs-up
+                    span.countLike=video.like
+
+                    if loggedUser
+                        button.unlike
+                            if loggedUser && loggedUser.unlike.indexOf(video.id) == 0
+                                i.fas.fa-thumbs-down(style="color: #d9534f")
+                            else
+                                i.fas.fa-thumbs-down
+                    else
+                        i.fas.fa-thumbs-down
+                    span.countUnlike=video.unlike   
+
+            .video-detail__profile
+                a.avatar(href=`/user${routes.userDetail(video.creator.id)}`)
+                    img(src=video.creator.avatarUrl)
+
+                a.name(href=`/user${routes.userDetail(video.creator.id)}`)
+                    span.video-detail__name=video.creator.name
+
+                .video-detail__createAt
+                    span 게시일: #{moment(video.createAt).format('YYYY. M. D')}
+
+
+                if loggedUser && loggedUser.id == video.creator.id || !loggedUser
+                    span
+                else if loggedUser && loggedUser.subscribe.indexOf(video.creator.id) == -1
+                    span.subscribe-wrapper
+                        .subscribe(id=video.creator.id) 
+                            | 구독 
+                            .subscribe-count #{video.creator.follower}
+                            | 명 
+                else
+                    span.subscribe-wrapper
+                        .subscribe(id=video.creator.id) 
+                            | 구독중 
+                            .subscribe-count #{video.creator.follower}
+                            | 명    
+                if !loggedUser
+                    span.subscribeLogout-wrapper
+                        .subscribeLogout
+                            | 구독
+                            .subscribe-count #{video.creator.follower}
+                            | 명
+                        
+            p.video-detail__description=video.description
+
+            if loggedUser && loggedUser.id == video.creator.id
+                a.video-detail__edit(href=`/video${routes.editVideo(video.id)}`) 
+                    p 수정
+
+    .video-comment
+        if loggedUser
+            .throwName(id=loggedUser.name)
+            .throwAvatar(id=loggedUser.avatarUrl)
+
+        p.video-comment__length 댓글 
+            span #{video.comment.length}
+            | 개
+
+        if loggedUser
+            form.video-comment__text
+                img.avatar(src=loggedUser.avatarUrl)
+                input(type="text", name="comment", placeholder="공개 댓글 추가...", required)
+                
+        .video-comment__list
+            each comment in video.comment.reverse()
+                .video-comment__each
+                    img.avatar(src=comment.creator.avatarUrl)
+                    .name-wrapper
+                        span.name=comment.creator.name
+                        span.createAt=moment(comment.createAt, moment()).fromNow()
+                        if loggedUser && comment.creator.id == loggedUser.id
+                            button.video-comment__edit--del(id=comment.id) 삭제
+                    p.text=comment.text
+            
+        

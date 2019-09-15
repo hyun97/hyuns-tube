@@ -1,0 +1,55 @@
+.user-profile {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 50px;
+
+	.user-profile__avatar {
+		width: 300px;
+		height: 300px;
+		border-radius: 50px;
+		margin-bottom: 20px;
+	}
+
+	.user-profile__name {
+		color: $lightGray;
+		font-weight: bolder;
+		font-size: 25px;
+	}
+
+	.subscribe,
+	.subscribeLogout {
+		margin-top: 20px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+		background-color: $greenNeon;
+		width: 105px;
+		height: 50px;
+		border-radius: 20px;
+		font-weight: bold;
+
+		.subscribe-count {
+			margin-left: 6px;
+		}
+	}
+
+	.user-profile__edit {
+		margin-top: 20px;
+		background-color: $greenNeon;
+		width: 50px;
+		height: 25px;
+		text-align: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 5px;
+
+		p {
+			color: $darkerV2;
+			font-size: 14px;
+			font-weight: 600;
+		}
+	}
+}
