@@ -12,9 +12,9 @@
 		"dev:assets": "cd src && cross-env WEBPACK_ENV=development webpack -w",
 		"build:assets": "cd src && cross-env WEBPACK_ENV=production webpack",
 		"build:server": "babel src --out-dir build --ignore 'src/assets','src/static','src/webpack.config.js'",
-		"copyAll": "xcopy .\\src\\static .\\build\\static\\ /s /y && xcopy .\\src\\views .\\build\\views\\ /s /y",
+		"copyAll": "shx cp -r src/static build/static && shx cp -r src/views build/views",
 		"build": "npm run build:server && npm run build:assets && npm run copyAll",
-		"prebuild": "rd /s /q build",
+		"prebuild": "shx rm -r build",
 		"start": "PRODUCTION=true node build/init.js"
 	},
 	"author": "Hyun",
@@ -56,6 +56,7 @@
 		"postcss-loader": "^3.0.0",
 		"pug": "^2.0.4",
 		"sass-loader": "^7.3.1",
+		"shx": "^0.3.2",
 		"sweetalert": "^2.1.2",
 		"webpack": "^4.39.2",
 		"webpack-cli": "^3.3.7"
