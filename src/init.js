@@ -14,4 +14,4 @@ let handleListening = () => {
 	console.log(`✅  Connect to localhost:2000`);
 };
 
-app.listen(2000, handleListening);
+app.listen(process.env.PORT || 2000, handleListening);
