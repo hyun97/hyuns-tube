@@ -15,7 +15,7 @@ passport.use(
 		{
 			clientID: process.env.GOOGLE_CLIENT_ID,
 			clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-			callbackURL: "http://localhost:2000/auth/google/callback"
+			callbackURL: "https://enigmatic-cliffs-08525.herokuapp.com/auth/google/callback"
 		},
 		googleCallback
 	)
@@ -27,7 +27,7 @@ passport.use(
 		{
 			clientID: process.env.NAVER_CLIENT_ID,
 			clientSecret: process.env.NAVER_CLIENT_SECRET,
-			callbackURL: "http://localhost:2000/auth/naver/callback"
+			callbackURL: "https://enigmatic-cliffs-08525.herokuapp.com/auth/naver/callback"
 		},
 		naverCallback
 	)
