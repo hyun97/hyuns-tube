@@ -1,8 +1,8 @@
 hyuns-tube
 ==========
 
-Technologies      Features
-------------      --------
+Technologies
+------------
 1. NodeJS
 2. ES6
 3. Express
